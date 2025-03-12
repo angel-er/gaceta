@@ -1,8 +1,8 @@
 // pages/Admin/Login.jsx
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
-import api from "../../api/api";
+import { AuthContext } from "#context/AuthContext";
+import api from "#api/api";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -13,9 +13,9 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post("/admin/login", { username, password });
+      const response = await api.post("/login", { username, password });
       login(response.data.token); // Almacenar el token
-      navigate("/admin/dashboard"); // Redirigir al dashboard
+      navigate("/dashboard"); // Redirigir al dashboard
     } catch (error) {
       alert("Credenciales incorrectas");
     }
