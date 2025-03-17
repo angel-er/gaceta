@@ -1,10 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PublicHome from "#pages/Client/Home/Home.js";
-import Login from "#pages/Admin/Login";
-import Dashboard from "#pages/Admin/Dashboard";
-import Information from "#pages/Client/Information";
-import PrivateRoute from "#components/PrivateRoute";
+import PageInit from "#pages/Client/PageInit/PageInit.js";
+
 import Error404 from "#components/Errors/404/404.js";
 import Error500 from "#components/Errors/500/500.js";
 import About from "#components/About.js";
@@ -16,7 +14,7 @@ const RouterApp = () => {
       <Routes>
         {/* Rutas públicas */}
         <Route path="/" element={<PublicHome />}>
-          <Route index element={<h2>Bienvenido a la pagina principal</h2>} />
+          <Route index element={<PageInit />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
         </Route>

@@ -5,13 +5,14 @@ import {
   ArrowIcon,
   Hamburger,
   Image,
-  Logo,
   Menu,
   MenuItem,
   MenuLink,
   Nav,
+  Signature,
   Submenu,
   SubmenuItem,
+  SubMenuLink,
 } from "./Navbar.styles";
 
 function Navbar() {
@@ -22,18 +23,15 @@ function Navbar() {
       <Image>
         <img src={ImageLogo} alt="" />
       </Image>
-      <Logo href="">
-        MMC<span>Comarapa</span>
-      </Logo>
+      <Signature href="">
+        GAM<span>Comarapa</span>
+      </Signature>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
         <span />
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuItem>
-          <MenuLink to="/">Inicio</MenuLink>
-        </MenuItem>
         <MenuItem>
           <MenuLink to="">
             Biografia{" "}
@@ -44,10 +42,30 @@ function Navbar() {
           </MenuLink>
           <Submenu className="submenu" isSubmenuOpen={isSubmenuOpen}>
             <SubmenuItem>
-              <MenuLink to="/biography/history">Historia</MenuLink>
+              <SubMenuLink to="/biography/history">Historia</SubMenuLink>
             </SubmenuItem>
             <SubmenuItem>
-              <MenuLink to="/biography/address">Organigrama</MenuLink>
+              <SubMenuLink to="/biography/address">Organigrama</SubMenuLink>
+            </SubmenuItem>
+          </Submenu>
+        </MenuItem>
+        <MenuItem>
+          <MenuLink to="">
+            Institución{" "}
+            <ArrowIcon
+              isSubmenuOpen={isSubmenuOpen}
+              className="fas fa-chevron-down"
+            />
+          </MenuLink>
+          <Submenu className="submenu" isSubmenuOpen={isSubmenuOpen}>
+            <SubmenuItem>
+              <SubMenuLink to="/mision">Misión</SubMenuLink>
+            </SubmenuItem>
+            <SubmenuItem>
+              <SubMenuLink to="/vision">Visión</SubMenuLink>
+            </SubmenuItem>
+            <SubmenuItem>
+              <SubMenuLink to="/tramites">Tramites Municipales</SubMenuLink>
             </SubmenuItem>
           </Submenu>
         </MenuItem>
@@ -61,10 +79,13 @@ function Navbar() {
           </MenuLink>
           <Submenu className="submenu" isSubmenuOpen={isSubmenuOpen}>
             <SubmenuItem>
-              <MenuLink to="/gazette/leyes">Leyes</MenuLink>
+              <SubMenuLink to="/gazette/decretos">Decretos</SubMenuLink>
             </SubmenuItem>
             <SubmenuItem>
-              <MenuLink to="/gazette/resoluciones">Resoluciones</MenuLink>
+              <SubMenuLink to="/gazette/leyes">Leyes</SubMenuLink>
+            </SubmenuItem>
+            <SubmenuItem>
+              <SubMenuLink to="/gazette/resoluciones">Resoluciones</SubMenuLink>
             </SubmenuItem>
           </Submenu>
         </MenuItem>

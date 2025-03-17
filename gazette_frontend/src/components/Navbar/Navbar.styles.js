@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Logo = styled.a`
+export const Signature = styled.a`
   /* padding: 1rem 0; */
-  color: #7b7fda;
+  color: #fff;
   text-decoration: none;
-  font-weight: 800;
+  /* font-weight: 800; */
   font-size: 1.7rem;
 
   span {
     font-weight: 300;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -26,7 +26,6 @@ export const Nav = styled.nav`
   flex-wrap: wrap;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
-
   @media (max-width: 768px) {
     padding: 0;
   }
@@ -45,15 +44,12 @@ export const Image = styled.a`
 
 export const Menu = styled.ul`
   display: flex;
-  /* justify-content: space-between; */
-  /* align-items: center; */
   position: relative;
-  font-weight: 800;
+  font-weight: 500;
   list-style: none;
-  display: flex;
-  /* gap: 1.5rem; */
   margin: 0;
   padding: 0;
+  z-index: 200;
 
   @media (max-width: 768px) {
     overflow: hidden;
@@ -68,6 +64,7 @@ export const Menu = styled.ul`
 export const MenuItem = styled.li`
   font-size: 1rem;
   position: relative;
+  border-top: solid 6px rgb(244, 160, 4);
 
   &:hover .submenu {
     display: block;
@@ -79,7 +76,7 @@ export const MenuLink = styled(Link)`
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: #67bc98;
+  color: #fff;
   transition: all 0.4s ease-in;
   font-size: 0.9rem;
   display: block;
@@ -99,7 +96,7 @@ export const MenuLink = styled(Link)`
   &:hover {
     color: #ffffff;
     /* font-size: 1rem; */
-    background-color: #67bc98;
+    background-color: rgb(65, 64, 64);
     text-decoration: underline;
   }
   @media (max-width: 768px) {
@@ -112,8 +109,8 @@ export const Submenu = styled.ul`
   /* opacity: 0; */
   position: absolute;
   top: 100%;
-  left: 0;
-  background-color: #ffffff;
+  left: 100;
+  background-color: #333333;
   /*background-color: #00695c; /* Fondo verde más claro */
   list-style: none;
   padding: 0;
@@ -131,6 +128,26 @@ export const Submenu = styled.ul`
 
 export const SubmenuItem = styled.li`
   /* padding: 0.5rem 1rem; */
+`;
+
+export const SubMenuLink = styled(Link)`
+  padding: 1rem;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.4s ease-in;
+  font-size: 0.75rem;
+  display: block;
+
+  &:hover {
+    color: #ffffff;
+    background-color: rgb(65, 64, 64);
+    text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Hamburger = styled.div`
