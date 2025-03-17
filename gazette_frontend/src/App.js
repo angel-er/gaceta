@@ -9,13 +9,11 @@ const theme = {
 };
 function App() {
   return (
-    <div className="App">
-      <AuthProvider>
-        <ThemeProvider theme={theme}>
-          <RouterApp />
-        </ThemeProvider>
-      </AuthProvider>
-    </div>
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
+        <RouterApp />
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 

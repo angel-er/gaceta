@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "#components/Navbar/Navbar.js";
 import { Outlet } from "react-router-dom";
 import Header from "#components/Header/Header.js";
-import { HeaderStyles } from "./Home.styles";
+import { HeaderStyles, Main } from "./Home.styles";
 import Footer from "#components/Footer/Footer.js";
 
 const Information = ({ children }) => {
@@ -43,7 +43,9 @@ const Information = ({ children }) => {
         <Header />
         <Navbar />
       </HeaderStyles>
-      <Outlet />
+      <Main>
+        <Outlet />
+      </Main>
       <Footer />
     </div>
   );

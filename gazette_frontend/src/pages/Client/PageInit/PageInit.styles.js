@@ -2,17 +2,13 @@ import styled from "styled-components";
 
 export const ContainerInit = styled.div`
   background-color: aliceblue;
-  width: 90%;
   margin: auto;
-  padding: 1rem;
-  font-size: "16px";
-  font-family: "Open Sans", Arial, sans-serif;
+  padding: 3.125em 1.875em;
 `;
 
 export const GridContainer = styled.div`
   display: grid;
   grid-template-areas: "a b b b b c";
-  width: 100%;
   gap: 20px;
 
   @media (max-width: 961px) {
