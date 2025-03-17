@@ -7,6 +7,7 @@ import Error404 from "#components/Errors/404/404.js";
 import Error500 from "#components/Errors/500/500.js";
 import About from "#components/About.js";
 import Services from "#components/Services.js";
+import Mission from "#pages/Client/Mission/Mission.js";
 
 const RouterApp = () => {
   return (
@@ -15,7 +16,7 @@ const RouterApp = () => {
         {/* Rutas públicas */}
         <Route path="/" element={<PublicHome />}>
           <Route index element={<PageInit />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/mission" element={<Mission />} />
           <Route path="/services" element={<Services />} />
         </Route>
 

@@ -23,7 +23,7 @@ function Navbar() {
       <Image>
         <img src={ImageLogo} alt="" />
       </Image>
-      <Signature href="">
+      <Signature href="/">
         GAM<span>Comarapa</span>
       </Signature>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
@@ -42,10 +42,10 @@ function Navbar() {
           </MenuLink>
           <Submenu className="submenu" isSubmenuOpen={isSubmenuOpen}>
             <SubmenuItem>
-              <SubMenuLink to="/biography/history">Historia</SubMenuLink>
+              <SubMenuLink to="/history">Historia</SubMenuLink>
             </SubmenuItem>
             <SubmenuItem>
-              <SubMenuLink to="/biography/address">Organigrama</SubMenuLink>
+              <SubMenuLink to="/address">Organigrama</SubMenuLink>
             </SubmenuItem>
           </Submenu>
         </MenuItem>
@@ -59,7 +59,7 @@ function Navbar() {
           </MenuLink>
           <Submenu className="submenu" isSubmenuOpen={isSubmenuOpen}>
             <SubmenuItem>
-              <SubMenuLink to="/mision">Misión</SubMenuLink>
+              <SubMenuLink to="/mission">Misión</SubMenuLink>
             </SubmenuItem>
             <SubmenuItem>
               <SubMenuLink to="/vision">Visión</SubMenuLink>
