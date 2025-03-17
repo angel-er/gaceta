@@ -5,7 +5,6 @@ import {
   ArrowIcon,
   Hamburger,
   Image,
-  Logo,
   Menu,
   MenuItem,
   MenuLink,

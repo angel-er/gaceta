@@ -1,10 +1,9 @@
-// pages/Client/Information.jsx
-import React, { useEffect, useState } from "react";
-// import api from "../../api/api";
+import React, { useState } from "react";
 import Navbar from "#components/Navbar/Navbar.js";
 import { Outlet } from "react-router-dom";
 import Header from "#components/Header/Header.js";
 import { HeaderStyles } from "./Home.styles";
+import Footer from "#components/Footer/Footer.js";
 
 const Information = ({ children }) => {
   const [files, setFiles] = useState([]);
@@ -45,6 +44,7 @@ const Information = ({ children }) => {
         <Navbar />
       </HeaderStyles>
       <Outlet />
+      <Footer />
     </div>
   );
 };

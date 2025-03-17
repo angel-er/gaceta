@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerInit = styled.div`
   background-color: aliceblue;
-  /* width: 10%; */
+  width: 90%;
   margin: auto;
   padding: 1rem;
   font-size: "16px";
@@ -14,6 +14,12 @@ export const GridContainer = styled.div`
   grid-template-areas: "a b b b b c";
   width: 100%;
   gap: 20px;
+
+  @media (max-width: 961px) {
+    grid-template-areas:
+      "a b b b b b"
+      "c c c c c c";
+  }
 
   @media (max-width: 768px) {
     grid-template-areas:
@@ -41,4 +47,17 @@ export const GridTwo = styled.div`
 
 export const GridThree = styled.div`
   grid-area: c;
+`;
+
+export const TagContent = styled.div`
+  color: #111111;
+  border: solid 1px #dadada;
+  padding: 0.5em;
+  font-size: 0.9375rem;
+  line-height: 1.5em;
+`;
+
+export const SymbolContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

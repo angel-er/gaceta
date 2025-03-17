@@ -1,23 +1,34 @@
+import { useState } from "react";
+import { styled } from "@mui/material/styles";
+import MuiAccordion from "@mui/material/Accordion";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import MuiAccordionSummary, {
+  accordionSummaryClasses,
+} from "@mui/material/AccordionSummary";
+import MuiAccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import { Box, Divider } from "@mui/material";
+
 import {
   ContainerInit,
   GridContainer,
   GridOne,
   GridThree,
   GridTwo,
+  SymbolContainer,
+  TagContent,
 } from "./PageInit.styles";
-import Weather from "./WeatherWidget/WeatherWidget";
-import { styled } from "@mui/material/styles";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-import MuiAccordion from "@mui/material/Accordion";
-import MuiAccordionSummary, {
-  accordionSummaryClasses,
-} from "@mui/material/AccordionSummary";
-import MuiAccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import { useState } from "react";
-import Grid from "@mui/material/Grid2";
+import Weather from "#components/Weather/Weather.js";
 import CardCustom from "#components/Card/Card.js";
 import BoxCustom from "#components/Box/Box.js";
+import Maps from "#components/Maps/Maps.js";
+import SocialMediaIframe from "#components/SocialMedia/SocialMedia.js";
+import Tag from "#components/Tag/tag.js";
+import ImgEscudo from "#assets/escudo.png";
+import ImgBandera from "#assets/bandera.png";
+import Biography from "./Biography/Biography";
+// import History from "./History/History";
+
 const data = [
   {
     title: "Fundación",
@@ -100,18 +111,16 @@ const Pageinit = () => {
       <GridContainer>
         <GridOne>
           <BoxCustom>
-            <iframe
-              // src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FGobiernoAutonomoMunicipalDeMairana&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100090337929150&tabs=timeline&width=270&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
-              width="100%"
-              height="500"
-              //   style="border:none;overflow:hidden"
-              style={{ display: "block", width: "100%" }}
-              scrolling="no"
-              frameborder="0"
-              allowfullscreen="true"
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            ></iframe>
+            <SocialMediaIframe
+              url={process.env.REACT_APP_API_FACEBOOK}
+              id="frame-facebook"
+              style={{
+                display: "block",
+                // width: "100%",
+                border: "none",
+                overflow: "hidden",
+              }}
+            />
           </BoxCustom>
           <BoxCustom>
             <CardCustom title={title}>
@@ -128,14 +137,11 @@ const Pageinit = () => {
           </BoxCustom>
           <BoxCustom>
             <CardCustom title="Ubicación">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1898.1939121687824!2d-64.53015266320654!3d-17.91405637758016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93fab11da7f8a2e5%3A0xf65069af757daae0!2sGobierno%20Aut%C3%B3nomo%20Municipal%20De%20Comarapa!5e0!3m2!1ses-419!2sbo!4v1699891444580!5m2!1ses-419!2sbo"
-                width="270"
-                height="400"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+              <Maps
+                style={{ border: 0 }}
+                url={process.env.REACT_APP_API_MAPS}
+                id="frame-map"
+              />
             </CardCustom>
           </BoxCustom>
         </GridOne>
@@ -151,8 +157,10 @@ const Pageinit = () => {
           >
             Gobierno Autonomo Municipal de Comarapa
           </Typography>
+          {/* <History data={data} /> */}
           {data.map((data, idx) => (
             <Accordion
+              key={idx}
               expanded={expanded === `panel${idx + 1}`}
               onChange={handleChange(`panel${idx + 1}`)}
             >
@@ -175,18 +183,49 @@ const Pageinit = () => {
               </AccordionDetails>
             </Accordion>
           ))}
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: "2em",
-              textAlign: "center",
-              fontWeight: 600,
-              lineHeight: 1.3,
-              marginTop: "2em",
-            }}
-          >
-            Símbolos de COMARAPA
-          </Typography>
+          <Box sx={{ marginBottom: "2em" }}>
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: "2em",
+                textAlign: "center",
+                fontWeight: 600,
+                lineHeight: 1.3,
+                marginTop: "2em",
+              }}
+            >
+              Símbolos de COMARAPA
+            </Typography>
+            <Divider sx={{ marginBottom: "1em" }} />
+            <SymbolContainer>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <Box component="img" src={ImgEscudo} />
+                <Typography>Escudo</Typography>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <Box component="img" src={ImgBandera} />
+                <Typography>Bandera</Typography>
+              </Box>
+            </SymbolContainer>
+          </Box>
+          <Box>
+            <TagContent>
+              <Tag title="Superficie" description="3.271,03 km²" />
+            </TagContent>
+            <TagContent>
+              <Tag
+                title="Distancia"
+                description="Se encuentra a 245 km de Santa Cruz de la Sierra"
+              />
+            </TagContent>
+            <TagContent>
+              <Tag
+                title="Población"
+                description="17.511 habitantes (Proyección de población del año 2020. Fuente Instituto Nacional de Estadística, Revisión 2014)"
+              />
+            </TagContent>
+          </Box>
+          <Biography />
         </GridTwo>
         <GridThree>
           <BoxCustom>
@@ -194,23 +233,16 @@ const Pageinit = () => {
           </BoxCustom>
           <BoxCustom>
             <CardCustom title="Encuéntranos">
-              <div>
-                <Typography variant="p">
-                  {" "}
-                  <strong>Dirección</strong> <br />
-                  Plaza 11 de junio
-                </Typography>
-              </div>
-              <div>
-                <Typography variant="p">
-                  <strong>Horas</strong> <br />
-                  Lunes a viernes: de 8:00AM a 6:PM
-                </Typography>
-              </div>
-              <Typography variant="p">
-                <strong>Teléfono</strong> <br />
-                3-9462021 o 507 00034
-              </Typography>
+              <Box sx={{ marginBottom: "1em" }}>
+                <Tag title="Dirección" description="Plaza 11 de junio" />
+              </Box>
+              <Box sx={{ marginBottom: "1em" }}>
+                <Tag
+                  title="Horas"
+                  description="Lunes a viernes: de 8:00AM a 6:PM"
+                />
+              </Box>
+              <Tag title="Teléfono" description="3-9462021 o 507 00034" />
             </CardCustom>
           </BoxCustom>
         </GridThree>

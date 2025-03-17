@@ -1,10 +1,10 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
 import {
   DateText,
   Day,
   DayContainer,
   DayTemperature,
-  Description,
   HeaderContainer,
   Loading,
   Location,
@@ -16,8 +16,7 @@ import {
   WeatherWidget,
   WeatherWind,
   WeekContainer,
-} from "./WeatherWidget.styles";
-import { useState, useEffect } from "react";
+} from "./Weather.styles";
 
 const Weather = () => {
   const [forecastData, setForecastData] = useState(null);
@@ -25,21 +24,20 @@ const Weather = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_KEY = "572edb32d7e42bf8e5646bb59980c566"; // Reemplaza con tu API Key de OpenWeatherMap
-  const CITY = "Comarapa, BO"; // Ciudad y país (puedes cambiarlo)
+  const API_KEY = process.env.REACT_APP_KEY_WEATHER_WIDGET;
+  const CITY = process.env.REACT_APP_CITY_WEATHER_WIDGET;
+  const API_WEATHER_DATA = process.env.REACT_APP_API_WEATHER_DATA;
+  const API_WEATHER_IMG = process.env.REACT_APP_API_WEATHER_IMG;
 
   useEffect(() => {
-    console.log("WEATHER MAP");
     const fetchWeather = async () => {
       try {
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`
+          `${API_WEATHER_DATA}/weather?q=${CITY}&appid=${API_KEY}&units=metric`
         );
-        console.log("RESPONSE CLIMA: ", response);
         setWeatherData(response.data);
         setLoading(false);
       } catch (err) {
-        console.log("ERROR CLIMA: ", err);
         setError("Error al cargar los datos del clima.");
         setLoading(false);
       }
@@ -47,7 +45,7 @@ const Weather = () => {
     const fetchForecast = async () => {
       try {
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&appid=${API_KEY}&units=metric`
+          `${API_WEATHER_DATA}/forecast?q=${CITY}&appid=${API_KEY}&units=metric`
         );
         setForecastData(response.data);
         setLoading(false);
@@ -72,7 +70,6 @@ const Weather = () => {
       grouped[date].push(item);
     });
 
-    console.log(grouped);
     return grouped;
   };
 
@@ -95,7 +92,7 @@ const Weather = () => {
         <HeaderContainer>
           <WeatherTemperature>
             <WeatherIcon
-              src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+              src={`${API_WEATHER_IMG}/${weatherData.weather[0].icon}@2x.png`}
               alt={weatherData.weather[0].description}
             />
             <Temperature>{Math.round(weatherData.main.temp)}°</Temperature>
@@ -108,6 +105,7 @@ const Weather = () => {
             <WeatherDataMain>{weatherData.main.pressure}hPa</WeatherDataMain>
             <WeatherDataMain>{weatherData.main.humidity}%</WeatherDataMain>
           </WeatherWind>
+          <WeatherWind></WeatherWind>
         </HeaderContainer>
         {/* <Description>{weatherData.weather[0].description}</Description> */}
         <WeekContainer>
@@ -139,7 +137,7 @@ const Weather = () => {
                 </Day>
                 <Day>
                   <WeatherIcon
-                    src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+                    src={`${API_WEATHER_IMG}/${weather.icon}@2x.png`}
                     alt={weather.description}
                     style={{ width: "40px", height: "40px" }}
                   />
@@ -152,7 +150,7 @@ const Weather = () => {
           })}
         </WeekContainer>
         <a
-          href="https://eltiempoen.com/bolivia/santa-cruz/mairana"
+          href="https://eltiempoen.com/bolivia/santa-cruz/comarapa"
           target="_blank"
         >
           El tiempo en Comarapa

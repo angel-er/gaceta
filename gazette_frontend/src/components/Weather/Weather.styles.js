@@ -40,10 +40,12 @@ export const WeatherWind = styled.div`
   display: flex;
   justify-content: space-around;
   font-size: 0.8rem;
+  margin-bottom: 1em;
 `;
 
 export const WeatherDataMain = styled.p`
   width: 100%;
+  margin: 0;
 `;
 
 export const Description = styled.p`
