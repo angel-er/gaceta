@@ -20,6 +20,30 @@ export const PATH_PAGE = {
   },
 };
 
+export const PATH_PAGE_PUBLIC = {
+  root: ROOTS.auth,
+  institution: {
+    mission: path(ROOTS.auth, "mision"),
+    vision: path(ROOTS.auth, "vision"),
+    procedures: path(ROOTS.auth, "tramites"),
+  },
+  gazette: {
+    resolutions: path(ROOTS.auth, "resoluciones"),
+    municipalLows: path(ROOTS.auth, "leyes-municipales"),
+    municipalDecrees: path(ROOTS.auth, "decretos-municipales"),
+    municipalOrdinances: path(ROOTS.auth, "ordenanzas-municipales"),
+  },
+  executive: {
+    humanDevelopment: path(ROOTS.auth, "desarrollo-humano"),
+    finance: path(ROOTS.auth, "finanzas"),
+    publicWorks: path(ROOTS.auth, "obras-publicas"),
+    collections: path(ROOTS.auth, "recaudaciones"),
+    productiveDevelopment: path(ROOTS.auth, "desarrollo-productivo"),
+    intendance: path(ROOTS.auth, "intendencia"),
+    legalAdvice: path(ROOTS.auth, "asesoria-legal"),
+  },
+};
+
 export const PATH_APP = {
   dashboard: ROOTS.app,
   home: path(ROOTS.app, "/home"),

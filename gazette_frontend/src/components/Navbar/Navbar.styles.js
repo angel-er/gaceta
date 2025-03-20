@@ -2,10 +2,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Signature = styled.a`
-  /* padding: 1rem 0; */
   color: #fff;
   text-decoration: none;
-  /* font-weight: 800; */
   font-size: 1.7rem;
 
   span {
@@ -45,8 +43,10 @@ export const Image = styled.a`
 export const Menu = styled.ul`
   display: flex;
   position: relative;
+  font-size: 1em;
   font-weight: 500;
   list-style: none;
+  text-transform: uppercase;
   margin: 0;
   padding: 0;
   z-index: 200;
@@ -62,7 +62,6 @@ export const Menu = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-  font-size: 1rem;
   position: relative;
   border-top: solid 6px rgb(244, 160, 4);
 
@@ -78,24 +77,10 @@ export const MenuLink = styled(Link)`
   text-decoration: none;
   color: #fff;
   transition: all 0.4s ease-in;
-  font-size: 0.9rem;
   display: block;
-  /* width: 100%; */
-
-  /* &::before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #67bc98;
-    transition: all.3s;
-  } */
 
   &:hover {
     color: #ffffff;
-    /* font-size: 1rem; */
     background-color: rgb(65, 64, 64);
     text-decoration: underline;
   }
@@ -111,7 +96,6 @@ export const Submenu = styled.ul`
   top: 100%;
   left: 100;
   background-color: #333333;
-  /*background-color: #00695c; /* Fondo verde más claro */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -121,8 +105,6 @@ export const Submenu = styled.ul`
   @media (max-width: 768px) {
     position: static;
     background-color: #00796b; /* Fondo verde para móviles */
-    /* max-height: ${({ isSubmenuOpen }) => (isSubmenuOpen ? "200px" : "0")};
-    opacity: ${({ isSubmenuOpen }) => (isSubmenuOpen ? "1" : "0")}; */
   }
 `;
 
@@ -137,7 +119,7 @@ export const SubMenuLink = styled(Link)`
   text-decoration: none;
   color: #fff;
   transition: all 0.4s ease-in;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   display: block;
 
   &:hover {
