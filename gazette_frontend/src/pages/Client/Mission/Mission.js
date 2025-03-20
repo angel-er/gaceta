@@ -2,23 +2,11 @@ import { Box, Typography } from "@mui/material";
 import { Article, Container, Figure, Title } from "./Mission.styles";
 
 import ImageMission from "#assets/mission.png";
+import ContainerCustom from "#components/Container/Container.js";
 
 const Mission = () => {
   return (
-    <Container>
-      <Title>
-        <Typography
-          variant="h1"
-          style={{
-            ...styles.typography,
-            fontSize: "2.25em",
-            lineHeight: "1.25em",
-            fontWeight: 600,
-          }}
-        >
-          Misión
-        </Typography>
-      </Title>
+    <ContainerCustom title="Misión">
       <Article>
         <Typography
           component="p"
@@ -41,7 +29,7 @@ const Mission = () => {
           <Box component="img" src={ImageMission} sx={{ width: "100%" }} />
         </Figure>
       </Article>
-    </Container>
+    </ContainerCustom>
   );
 };
 

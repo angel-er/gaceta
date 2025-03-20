@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import ImageLogo from "#assets/sello-logo.png";
+import { PATH_PAGE_PUBLIC } from "#routes/statics.js";
 import {
   ArrowIcon,
   Hamburger,
@@ -23,7 +24,7 @@ function Navbar() {
       <Image>
         <img src={ImageLogo} alt="" />
       </Image>
-      <Signature href="/">
+      <Signature href={PATH_PAGE_PUBLIC.root}>
         GAM<span>Comarapa</span>
       </Signature>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
@@ -38,6 +39,7 @@ function Navbar() {
             <ArrowIcon
               isSubmenuOpen={isSubmenuOpen}
               className="fas fa-chevron-down"
+              style={styles.icon}
             />
           </MenuLink>
           <Submenu className="submenu" isSubmenuOpen={isSubmenuOpen}>
@@ -55,17 +57,24 @@ function Navbar() {
             <ArrowIcon
               isSubmenuOpen={isSubmenuOpen}
               className="fas fa-chevron-down"
+              style={styles.icon}
             />
           </MenuLink>
           <Submenu className="submenu" isSubmenuOpen={isSubmenuOpen}>
             <SubmenuItem>
-              <SubMenuLink to="/mission">Misión</SubMenuLink>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.institution.mission}>
+                Misión
+              </SubMenuLink>
             </SubmenuItem>
             <SubmenuItem>
-              <SubMenuLink to="/vision">Visión</SubMenuLink>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.institution.vision}>
+                Visión
+              </SubMenuLink>
             </SubmenuItem>
             <SubmenuItem>
-              <SubMenuLink to="/tramites">Tramites Municipales</SubMenuLink>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.institution.procedures}>
+                Tramites Municipales
+              </SubMenuLink>
             </SubmenuItem>
           </Submenu>
         </MenuItem>
@@ -75,22 +84,80 @@ function Navbar() {
             <ArrowIcon
               isSubmenuOpen={isSubmenuOpen}
               className="fas fa-chevron-down"
+              style={styles.icon}
             />
           </MenuLink>
           <Submenu className="submenu" isSubmenuOpen={isSubmenuOpen}>
             <SubmenuItem>
-              <SubMenuLink to="/gazette/decretos">Decretos</SubMenuLink>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.gazette.resolutions}>
+                Resoluciones
+              </SubMenuLink>
             </SubmenuItem>
             <SubmenuItem>
-              <SubMenuLink to="/gazette/leyes">Leyes</SubMenuLink>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.gazette.municipalDecrees}>
+                Decretos
+              </SubMenuLink>
             </SubmenuItem>
             <SubmenuItem>
-              <SubMenuLink to="/gazette/resoluciones">Resoluciones</SubMenuLink>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.gazette.municipalLows}>
+                Leyes
+              </SubMenuLink>
+            </SubmenuItem>
+            <SubmenuItem>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.gazette.municipalOrdinances}>
+                Ordenanzas municipales
+              </SubMenuLink>
             </SubmenuItem>
           </Submenu>
         </MenuItem>
         <MenuItem>
-          <MenuLink to="">Ejecutivo</MenuLink>
+          <MenuLink to="">
+            Ejecutivo
+            <ArrowIcon
+              isSubmenuOpen={isSubmenuOpen}
+              className="fas fa-chevron-down"
+              style={styles.icon}
+            />
+          </MenuLink>
+          <Submenu className="submenu" isSubmenuOpen={isSubmenuOpen}>
+            <SubmenuItem>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.executive.humanDevelopment}>
+                Desarrollo Humano y Social
+              </SubMenuLink>
+            </SubmenuItem>
+            <SubmenuItem>
+              <SubMenuLink
+                to={PATH_PAGE_PUBLIC.executive.productiveDevelopment}
+              >
+                Desarrollo Productivo
+              </SubMenuLink>
+            </SubmenuItem>
+            <SubmenuItem>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.executive.publicWorks}>
+                Obras Públicas
+              </SubMenuLink>
+            </SubmenuItem>
+            <SubmenuItem>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.executive.finance}>
+                Finanzas
+              </SubMenuLink>
+            </SubmenuItem>
+            <SubmenuItem>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.executive.collections}>
+                Recaudaciones
+              </SubMenuLink>
+            </SubmenuItem>
+            <SubmenuItem>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.executive.intendance}>
+                Intendencia
+              </SubMenuLink>
+            </SubmenuItem>
+            <SubmenuItem>
+              <SubMenuLink to={PATH_PAGE_PUBLIC.executive.legalAdvice}>
+                Asesoria Legal
+              </SubMenuLink>
+            </SubmenuItem>
+          </Submenu>
         </MenuItem>
         <MenuItem>
           <MenuLink to="/legislative">Legislativo</MenuLink>
@@ -102,5 +169,9 @@ function Navbar() {
     </Nav>
   );
 }
+
+const styles = {
+  icon: { marginLeft: ".5em" },
+};
 
 export default Navbar;
