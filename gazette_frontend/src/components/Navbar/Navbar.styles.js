@@ -95,12 +95,26 @@ export const Submenu = styled.ul`
   position: absolute;
   top: 100%;
   left: 100;
-  background-color: #333333;
+  background-color: rgb(84, 83, 83);
   list-style: none;
   padding: 0;
   margin: 0;
   min-width: 150px;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid rgb(84, 83, 83);
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    z-index: 8;
+  }
 
   @media (max-width: 768px) {
     position: static;
