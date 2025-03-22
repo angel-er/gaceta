@@ -11,6 +11,9 @@ import Mission from "#pages/Client/Mission/Mission.js";
 import Vision from "#pages/Client/Vision/Vision.js";
 import Procedures from "#pages/Client/Procedures/Procedures.js";
 import Resolutions from "#pages/Client/Resolution/Resolution.js";
+import Decrees from "#pages/Client/Decrees/Decrees.js";
+import Lows from "#pages/Client/Lows/Lows.js";
+import Ordinances from "#pages/Client/Ordinances/Ordinances.js";
 
 const RouterApp = () => {
   return (
@@ -37,19 +40,15 @@ const RouterApp = () => {
           />
           <Route
             path={PATH_PAGE_PUBLIC.gazette.municipalDecrees}
-            element={<Procedures />}
+            element={<Decrees />}
           />
           <Route
             path={PATH_PAGE_PUBLIC.gazette.municipalLows}
-            element={<Procedures />}
+            element={<Lows />}
           />
           <Route
             path={PATH_PAGE_PUBLIC.gazette.municipalOrdinances}
-            element={<Procedures />}
-          />
-          <Route
-            path={PATH_PAGE_PUBLIC.gazette.municipalOrdinances}
-            element={<Procedures />}
+            element={<Ordinances />}
           />
         </Route>
 

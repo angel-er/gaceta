@@ -3,13 +3,13 @@ import AlignItemsList from "#components/List/List.js";
 import { Divider } from "@mui/material";
 import { data } from "./data-random";
 
-const Resolutions = () => {
+const Ordinances = () => {
   return (
-    <ContainerCustom title="Resoluciones">
+    <ContainerCustom title="Ordenanzas Municipales">
       <Divider />
       <AlignItemsList data={data} />
     </ContainerCustom>
   );
 };
 
-export default Resolutions;
+export default Ordinances;
